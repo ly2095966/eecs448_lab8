@@ -1,0 +1,33 @@
+body {
+    background-image: url(bg.jpg);
+    background-size: 100%;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
+}
+
+#toplevel {
+    background-color: azure;
+    border: 8px groove blue;
+    width: 800px;
+}
+
+#pfp {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+}
+
+.text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    color: rgb(44, 44, 44);
+}
+
+a {
+    color: rgb(44, 44, 44);
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Exercise 1</title>
+    </head>
+    <body>
+        <p id='error'></p>
+        <p>Enter your Password:</p>
+        <input id='Password' type='password' />
+        <p>Confirm:</p>
+        <input id='Confirm' type='password' /><br /><br />
+        <button onclick='validate()'>Enter</button>
+
+        <script>
+            function validate() {
+                let Password = document.querySelector('#Password').value
+                let Confirm = document.querySelector('#Confirm').value
+                error = false
+                if (Password !== Confirm) {
+                    document.querySelector('#error').innerText += "Error: The password is different!\n"
+                    error = true
+                }
+                if (Password.length < 8 || Confirm.length < 8) {
+                    document.querySelector('#error').innerText += "Error: passwords must be at least 8 characters long!\n"
+                    error = true
+                }
+                if (!error) {
+                    document.querySelector('#error').innerText = 'Success!'
+                }
+            }
+
+            function reset() {
+
+                document.querySelector('#error').innerText = ""
+            }
+
+            document.querySelector('#Password').addEventListener('keydown', reset)
+            document.querySelector('#Confirm').addEventListener('keydown', reset)
+        </script>
+    </body>
+</html>

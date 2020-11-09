@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>CSS Manipulation</title>
+        <style>
+            #toplevel {
+                display: flex;
+            }
+            #inputs {
+                border: 1px solid black;
+                text-align: center;
+                padding: 5px;
+            }
+            #text {
+                padding: 5px;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div id='toplevel'>
+            <div id='text'>
+                <p>Finally, have a button that, when clicked, changes the border and background color to be as specified. You can
+                    use either the rgb() method or a color code, but you should tell the user what units they are in (00-FF or 0-255).
+                    </p>
+            </div>
+            <div id='inputs'>
+                <h5>Border (0-255):</h5>
+                <input id='r1' type='number' min='0' max='255' placeholder='red' />
+                <input id='g1' type='number' min='0' max='255' placeholder='green' />
+                <input id='b1' type='number' min='0' max='255' placeholder='blue' />
+                <input id='w1' type='number' min='0' placeholder='width' />
+                <h5>Background color (0-255):</h5>
+                <input id='r2' type='number' min='0' max='255' placeholder='red' />
+                <input id='g2' type='number' min='0' max='255' placeholder='green' />
+                <input id='b2' type='number' min='0' max='255' placeholder='blue' />
+                <input id='w2' type='number' min='0' placeholder='width' /><br />
+                <button onclick='execute()'>Enter</button>
+            </div>
+        </div>
+
+        <script>
+            function execute() {
+                let values = []
+                let letters = ['r','g','b','w']
+                for (let i = 1; i < 3; i++) {
+                    for (const l of letters) {
+                        values.push(document.querySelector(`#${l}${i}`).value)
+                    }
+                }
+                let text = document.querySelector('#text')
+                text.style.border = `${values[3]}px solid rgb(${values[0]},${values[1]},${values[2]})`
+                text.style.backgroundColor = `rgb(${values[4]},${values[5]},${values[6]})`
+                text.style.width = `${values[7]}px`
+            }
+        </script>
+    </body>
+</html>
